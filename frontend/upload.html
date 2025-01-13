@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Certificate</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Certificate</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="certificateFile">Certificate File:</label>
+                <input type="file" id="certificateFile" name="certificateFile" accept="application/pdf, image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentEmail">Student Email:</label>
+                <input type="email" id="studentEmail" name="studentEmail" placeholder="student@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="certificateTitle">Certificate Title:</label>
+                <input type="text" id="certificateTitle" name="certificateTitle" placeholder="Certificate Title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalMetadata">Additional Metadata:</label>
+                <textarea id="additionalMetadata" name="additionalMetadata" placeholder="Enter any additional information..." rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Upload</button>
+        </form>
+
+        <div id="responseMessage" class="response-message"></div>
+    </div>
+
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const responseMessage = document.getElementById('responseMessage');
+
+        uploadForm.addEventListener('submit', async (event) => {
+            event.preventDefault();  // Prevent default form submission
+
+            const formData = new FormData(uploadForm);
+            try {
+                const response = await fetch('http://localhost:8000/auth/upload-certificate', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    responseMessage.textContent = `Success: ${data.message}`;
+                    responseMessage.style.color = 'green';
+                } else {
+                    responseMessage.textContent = `Error: ${data.message}`;
+                    responseMessage.style.color = 'red';
+                }
+            } catch (error) {
+                responseMessage.textContent = `Error: ${error.message}`;
+                responseMessage.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

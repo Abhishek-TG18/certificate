@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Certificate Verification</h1>
+    </header>
+
+    <main>
+        <section id="verification-section">
+            <h2>Verify Certificate</h2>
+            <form id="verify-form">
+                <label for="certificateId">Certificate ID:</label>
+                <input type="text" id="certificateId" name="certificateId" required>
+                <button type="submit">Verify</button>
+            </form>
+            <div id="verify-result"></div>
+        </section>
+
+        <section id="upload-section">
+            <h2>Upload Certificate</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <label for="certificateFile">Select Certificate File:</label>
+                <input type="file" id="certificateFile" name="certificateFile" required>
+                <button type="submit">Upload</button>
+            </form>
+            <div id="upload-result"></div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

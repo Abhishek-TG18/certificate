@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1, h2 {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="file"] {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#verify-result, #upload-result {
+    margin-top: 1rem;
+    font-weight: bold;
+}
